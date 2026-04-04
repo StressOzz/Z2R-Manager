@@ -1,5 +1,5 @@
 # Zapret 2 Routerich edition
-# Только для архитектуры _aarch64_cortex-a53_ !!!
+## Только для архитектуры _aarch64_cortex-a53_ и для _OpenWRT 24+_ !!!
 
 ---
 
