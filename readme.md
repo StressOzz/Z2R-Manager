@@ -36,3 +36,4 @@ sh <(wget -O - https://raw.githubusercontent.com/StressOzz/Z2R-Manager/main/Z2R-
 # Благодарности
 
 Спасибо [**Routerich**](https://t.me/routerich)
+Спасибо [**Slava-Shchipunov**](https://github.com/Slava-Shchipunov)
