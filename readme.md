@@ -1,4 +1,4 @@
-# Zapret2 & ZeroВlock Routerich Manаger
+# Zapret2 & ZeroВlock Manаger
 > [!IMPORTANT]
 > ### Только для архитектуры _aarch64_cortex-a53_ и для _OpenWRT 24_ !!!
 
@@ -32,3 +32,7 @@ sh <(wget -O - https://raw.githubusercontent.com/StressOzz/Z2R-Manager/main/Z2R-
 </table>
 
 ---
+
+# Благодарности
+
+Спасибо [**Routerich**](https://t.me/routerich)
