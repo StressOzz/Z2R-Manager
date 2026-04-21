@@ -9,7 +9,7 @@ echo " ███╔╝  ██╔═══╝ ██╔══██╗"
 echo "███████╗███████╗██║  ██║"
 echo "╚══════╝╚══════╝╚═╝  ╚═╝"
 
-BASE_HTML="https://github.com/routerich/packages.routerich/tree/24.10.5/routerich"
+BASE_HTML="https://github.com/routerich/packages.routerich/tree/24.10.6/routerich"
 RAW_BASE="https://github.com/routerich/packages.routerich/raw/refs/heads/24.10.5/routerich"
 TMP="/tmp/z2r"; GREEN="\033[1;32m"; RED="\033[1;31m"; NC="\033[0m"
 
