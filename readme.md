@@ -1,12 +1,34 @@
-# Zapret 2 Routerich edition
-## Только для архитектуры _aarch64_cortex-a53_ и для _OpenWRT 24+_ !!!
+# Zapret2 & ZeroВlock Routerich Manаger
+> [!IMPORTANT]
+> ### Только для архитектуры _aarch64_cortex-a53_ и для _OpenWRT 24+_ !!!
 
 ---
 
-Установка...
+- Установка
 ```
-sh <(wget -O - https://raw.githubusercontent.com/StressOzz/Z2R/main/z2r.sh)
+sh <(wget -O - https://raw.githubusercontent.com/StressOzz/Z2R-Manager/main/Z2R-Manager.sh)
 ```
-Что бы удалить, запустите скрипт ещё раз...
+
+-  Интегрировать **VPN** подписку в **Zeroblock**
+
+   Вставьте ссылку на свою подписку.
+   Можете воспользоваться [**StressKVN**](https://github.com/StressOzz/StressKVN)
+
+---
+
+<table>
+  <tr>
+    <td>
+      <a href="https://github.com/StressOzz#-поддержать-проект">
+        <img width="280" height="130" src="https://github.com/user-attachments/assets/2999757b-fbf3-4149-bf6c-48bf3e241529">
+      </a>
+    </td>
+    <td>
+      <a href="https://github.com/StressOzz/StressKVN">
+        <img width="270" height="80" src="https://github.com/user-attachments/assets/7dbb964b-bb79-461a-9f47-9ca73323ebac">
+      </a>
+    </td>
+  </tr>
+</table>
 
 ---
