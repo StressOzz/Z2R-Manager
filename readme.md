@@ -1,6 +1,6 @@
 # Zapret2 & ZeroВlock Routerich Manаger
 > [!IMPORTANT]
-> ### Только для архитектуры _aarch64_cortex-a53_ и для _OpenWRT 24.10.6_ !!!
+> ### Только для архитектуры _aarch64_cortex-a53_ и для _OpenWRT 24+_ !!!
 
 ---
 
