@@ -80,7 +80,7 @@ install_zero() {
     opkg update
     opkg install zeroblock luci-app-zeroblock
 	sed -i "/option api /s/'v2'/'v1'/" /etc/config/zeroblock
-    echo -e "\nZeroblock ${GREEN}установлен!${NC}"
+    echo -e "\nZeroBlock ${GREEN}установлен!${NC}"
 	PAUSE
 }
 
@@ -89,7 +89,7 @@ remove_zero() {
     rm -rf /etc/config/zeroblock*
     rm -rf /etc/zeroblock*
     rm -rf /usr/bin/zeroblock*
-    echo -e "\n${GREEN}Zeroblock удалён${NC}"
+    echo -e "\n${GREEN}ZeroBlock удалён${NC}"
 	PAUSE
 }
 
@@ -304,12 +304,12 @@ echo -e "${CYAN}Применяем конфигурацию${NC}"
 sleep 2
 echo -e "${CYAN}Перезапускаем сервис${NC}"
 /etc/init.d/zeroblockrestart >/dev/null 2>&1
-echo -e "VPN ${GREEN}подписка интегрирована в ${NC}Zeroblock${GREEN}!${NC}\n"
+echo -e "VPN ${GREEN}подписка интегрирована в ${NC}ZeroBlock${GREEN}!${NC}\n"
 PAUSE
 }
 ###################################################################################################################################################
 AWG_INT() {
-echo -e "\n${MAGENTA}Интегрируем AWG в Zeroblock${NC}"
+echo -e "\n${MAGENTA}Интегрируем AWG в ZeroBlock${NC}"
 
 
 cat > /etc/config/zeroblock << EOF
@@ -408,7 +408,7 @@ echo -e "${CYAN}Применяем конфигурацию${NC}"
 sleep 2
 echo -e "${CYAN}Перезапускаем сервис${NC}"
 /etc/init.d/zeroblockrestart >/dev/null 2>&1
-echo -e "AWG ${GREEN}интегрирован в ${NC}Zeroblock${GREEN}!${NC}\n"
+echo -e "AWG ${GREEN}интегрирован в ${NC}ZeroBlock${GREEN}!${NC}\n"
 PAUSE
 }
 
@@ -420,7 +420,7 @@ menu() {
     clear
 
 echo -e "╔══════════════════════════════╗"
-echo -e "║   Z2R Manager by StressOzz   ║"
+echo -e "║   ${BLUE}Z2R Manager by StressOzz${NC}   ║"
 echo -e "╚══════════════════════════════╝\n"
 
 
@@ -432,9 +432,9 @@ fi
 
 echo
 if [ -f /etc/config/zeroblock ]; then
-echo -e "${YELLOW}Zeroblock: ${GREEN}установлен${NC}"
+echo -e "${YELLOW}ZeroBlock: ${GREEN}установлен${NC}"
 else
-echo -e "${YELLOW}Zeroblock: ${RED}не установлен${NC}"
+echo -e "${YELLOW}ZeroBlock: ${RED}не установлен${NC}"
 fi
 
 echo
@@ -469,11 +469,11 @@ fi
     fi
 
     echo -e "\n${CYAN}1) ${GREEN}${Z}${NC} Zapret2"
-    echo -e "${CYAN}2) ${GREEN}${ZB}${NC} Zeroblock"
-	echo -e "${CYAN}3) ${GREEN}Интегрировать ${NC}VPN${GREEN} подписку в ${NC}Zeroblock${NC}"
+    echo -e "${CYAN}2) ${GREEN}${ZB}${NC} ZeroBlock"
+	echo -e "${CYAN}3) ${GREEN}Интегрировать ${NC}VPN${GREEN} подписку в ${NC}ZeroBlock${NC}"
     echo -e "${CYAN}4) ${GREEN}Установить ${NC}AWG ${GREEN}и${NC} интерфейс AWG"
     echo -e "${CYAN}5) ${GREEN}Удалить ${NC}AWG ${GREEN}и${NC} интерфейс AWG"
-	echo -e "${CYAN}6) ${GREEN}Интегрировать ${NC}AWG${GREEN} в ${NC}Zeroblock${NC}"	
+	echo -e "${CYAN}6) ${GREEN}Интегрировать ${NC}AWG${GREEN} в ${NC}ZeroBlock${NC}"	
     echo -e "${CYAN}7) ${GREEN}$R_TEXT пакеты${NC} Routerich"
     
 echo -ne "\n${YELLOW}Выберите пункт:${NC} "
