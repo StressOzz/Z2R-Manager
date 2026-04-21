@@ -21,15 +21,15 @@ pkg_remove="opkg remove --force-depends $pkg_name"
 PAUSE() { echo -ne "\nНажмите Enter..."; read dummy; }
 
 ARCH="$(awk -F\' '/DISTRIB_ARCH/ {print $2}' /etc/openwrt_release)"
-VER="$(awk -F\' '/DISTRIB_RELEASE/ {print $2}' /etc/openwrt_release)"
+VER="$(awk -F\' '/DISTRIB_RELEASE/ {print $2}' /etc/openwrt_release | cut -d. -f1)"
 
-[ "$VER" = "24.10.6" ] || { echo -e "\n${RED}Неподдерживаемая версия OpenWrt: ${NC}$VER\n"; exit 1; }
+[ "$VER" = "24" ] || { echo -e "\n${RED}Неподдерживаемая версия OpenWrt: ${NC}$VER\n"; exit 1; }
 [ "$ARCH" = "aarch64_cortex-a53" ] || { echo -e "\n${RED}Неподдерживаемая архитектура: ${NC}$ARCH\n"; exit 1; }
 
 if ! grep -q "routerich/packages.routerich" /etc/opkg/customfeeds.conf 2>/dev/null; then
     echo -e "\n${CYAN}Добавляем пакеты Routerich${NC}"
     sed -i 's/option check_signature/# option check_signature/' /etc/opkg.conf
-    echo 'src/gz routerich https://github.com/routerich/packages.routerich/raw/24.10.5/routerich' > /etc/opkg/customfeeds.conf
+    echo 'src/gz routerich https://github.com/routerich/packages.routerich/raw/24.10.6/routerich' > /etc/opkg/customfeeds.conf
     opkg update
 fi
 
@@ -39,7 +39,7 @@ is_routerich() {
 
 routerich_add() {
     sed -i 's/option check_signature/# option check_signature/' /etc/opkg.conf
-    echo 'src/gz routerich https://github.com/routerich/packages.routerich/raw/24.10.5/routerich' > /etc/opkg/customfeeds.conf
+    echo 'src/gz routerich https://github.com/routerich/packages.routerich/raw/24.10.6/routerich' > /etc/opkg/customfeeds.conf
     opkg update
     echo -e "\n${GREEN}Пакеты ${NC}Routerich${GREEN} добавлены!${NC}"
 	PAUSE
