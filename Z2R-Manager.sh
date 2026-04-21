@@ -264,6 +264,7 @@ config section 'StressKVN'
 	list subscription_ignore_tags 'Auto'
 	list subscription_ignore_tags 'LTE'
 	list subscription_ignore_tags 'Авто'
+	list community_lists 'anime'
 	list community_lists 'block'
 	list community_lists 'cloudflare'
 	list community_lists 'cloudfront'
@@ -310,7 +311,6 @@ PAUSE
 ###################################################################################################################################################
 AWG_INT() {
 echo -e "\n${MAGENTA}Интегрируем AWG в ZeroBlock${NC}"
-
 
 cat > /etc/config/zeroblock << EOF
 config settings 'settings'
@@ -411,9 +411,6 @@ echo -e "${CYAN}Перезапускаем сервис${NC}"
 echo -e "AWG ${GREEN}интегрирован в ${NC}ZeroBlock${GREEN}!${NC}\n"
 PAUSE
 }
-
-
-
 ###################################################################################################################################################
 
 menu() {
@@ -424,31 +421,31 @@ echo -e "║   ${BLUE}Z2R Manager by StressOzz${NC}   ║"
 echo -e "╚══════════════════════════════╝\n"
 
 
-if [ -f /etc/config/zapret2 ]; then
-echo -e "${YELLOW}Zapret2: ${GREEN}установлен${NC}"
-else
-echo -e "${YELLOW}Zapret2: ${RED}не установлен${NC}"
-fi
+	if [ -f /etc/config/zapret2 ]; then
+		echo -e "${YELLOW}Zapret2: ${GREEN}установлен${NC}"
+	else
+		echo -e "${YELLOW}Zapret2: ${RED}не установлен${NC}"
+	fi
 
 echo
-if [ -f /etc/config/zeroblock ]; then
-echo -e "${YELLOW}ZeroBlock: ${GREEN}установлен${NC}"
-else
-echo -e "${YELLOW}ZeroBlock: ${RED}не установлен${NC}"
-fi
+	if [ -f /etc/config/zeroblock ]; then
+		echo -e "${YELLOW}ZeroBlock: ${GREEN}установлен${NC}"
+	else
+		echo -e "${YELLOW}ZeroBlock: ${RED}не установлен${NC}"
+	fi
 
 echo
-if command -v amneziawg >/dev/null 2>&1 || eval "$PKG_MANAGER" | grep -q "amneziawg-tools"; then
-echo -e "${YELLOW}AWG: ${GREEN}установлен${NC}"
-else
-echo -e "${YELLOW}AWG: ${RED}не установлен${NC}"
-fi
+	if command -v amneziawg >/dev/null 2>&1 || eval "$PKG_MANAGER" | grep -q "amneziawg-tools"; then
+		echo -e "${YELLOW}AWG: ${GREEN}установлен${NC}"
+	else
+		echo -e "${YELLOW}AWG: ${RED}не установлен${NC}"
+	fi
 
-if uci -q get network.AWG >/dev/null; then
-    echo -e "${YELLOW}Интерфейс AWG: ${GREEN}установлен${NC}"
-else
-    echo -e "${YELLOW}Интерфейс AWG: ${RED}не установлен${NC}"
-fi
+	if uci -q get network.AWG >/dev/null; then
+		echo -e "${YELLOW}Интерфейс AWG: ${GREEN}установлен${NC}"
+	else
+		echo -e "${YELLOW}Интерфейс AWG: ${RED}не установлен${NC}"
+	fi
 
     if is_installed zapret2; then
         Z="Удалить"
@@ -474,9 +471,8 @@ fi
     echo -e "${CYAN}4) ${GREEN}Установить ${NC}AWG ${GREEN}и${NC} интерфейс AWG"
     echo -e "${CYAN}5) ${GREEN}Удалить ${NC}AWG ${GREEN}и${NC} интерфейс AWG"
 	echo -e "${CYAN}6) ${GREEN}Интегрировать ${NC}AWG${GREEN} в ${NC}ZeroBlock${NC}"	
-    echo -e "${CYAN}7) ${GREEN}$R_TEXT пакеты${NC} Routerich"
-    
-echo -ne "\n${YELLOW}Выберите пункт:${NC} "
+    echo -e "${CYAN}7) ${GREEN}$R_TEXT пакеты${NC} Routerich"    
+	echo -ne "\n${YELLOW}Выберите пункт:${NC} "
     read c
 
     case "$c" in
