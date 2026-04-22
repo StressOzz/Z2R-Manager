@@ -1,4 +1,7 @@
 # Zapret2 & ZeroВlock Manаger
+
+Скрипт для установки Zapret2 и ZeroВlock от Routerich
+
 > [!IMPORTANT]
 > ### Только для архитектуры _aarch64_cortex-a53_ и для _OpenWRT 24_ !!!
 
@@ -13,6 +16,9 @@ sh <(wget -O - https://raw.githubusercontent.com/StressOzz/Z2R-Manager/main/Z2R-
 
    Вставьте ссылку на свою подписку.
    Можете воспользоваться [**StressKVN**](https://github.com/StressOzz/StressKVN)
+
+---
+
 
 ---
 
