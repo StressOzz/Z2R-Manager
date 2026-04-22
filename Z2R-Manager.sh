@@ -26,13 +26,6 @@ VER="$(awk -F\' '/DISTRIB_RELEASE/ {print $2}' /etc/openwrt_release | cut -d. -f
 [ "$VER" = "24" ] || { echo -e "\n${RED}Неподдерживаемая версия OpenWrt: ${NC}$VER\n"; exit 1; }
 [ "$ARCH" = "aarch64_cortex-a53" ] || { echo -e "\n${RED}Неподдерживаемая архитектура: ${NC}$ARCH\n"; exit 1; }
 
-if ! grep -q "routerich/packages.routerich" /etc/opkg/customfeeds.conf 2>/dev/null; then
-    echo -e "\n${CYAN}Добавляем пакеты Routerich${NC}"
-    sed -i 's/option check_signature/# option check_signature/' /etc/opkg.conf
-    echo 'src/gz routerich https://github.com/routerich/packages.routerich/raw/24.10.6/routerich' > /etc/opkg/customfeeds.conf
-    opkg update
-fi
-
 is_routerich() {
     grep -q "routerich/packages.routerich" /etc/opkg/customfeeds.conf 2>/dev/null
 }
@@ -59,6 +52,11 @@ is_installed() {
 }
 
 install_zapret() {
+if ! grep -q "routerich/packages.routerich" /etc/opkg/customfeeds.conf 2>/dev/null; then
+    echo -e "\n${CYAN}Добавляем пакеты Routerich${NC}"
+    sed -i 's/option check_signature/# option check_signature/' /etc/opkg.conf
+    echo 'src/gz routerich https://github.com/routerich/packages.routerich/raw/24.10.6/routerich' > /etc/opkg/customfeeds.conf
+fi
     opkg update
     opkg install zapret2 luci-app-zapret2
 wget -qO /opt/zapret2/ipset/zapret_hosts_user_exclude.txt https://raw.githubusercontent.com/StressOzz/Zapret-Manager/refs/heads/main/zapret-hosts-user-exclude.txt
@@ -77,6 +75,11 @@ remove_zapret() {
 }
 
 install_zero() {
+if ! grep -q "routerich/packages.routerich" /etc/opkg/customfeeds.conf 2>/dev/null; then
+    echo -e "\n${CYAN}Добавляем пакеты Routerich${NC}"
+    sed -i 's/option check_signature/# option check_signature/' /etc/opkg.conf
+    echo 'src/gz routerich https://github.com/routerich/packages.routerich/raw/24.10.6/routerich' > /etc/opkg/customfeeds.conf
+fi
     opkg update
     opkg install zeroblock luci-app-zeroblock
 	sed -i "/option api /s/'v2'/'v1'/" /etc/config/zeroblock
