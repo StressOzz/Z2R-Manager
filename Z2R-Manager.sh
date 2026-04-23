@@ -23,8 +23,8 @@ PAUSE() { echo -ne "\nНажмите Enter..."; read dummy; }
 ARCH="$(awk -F\' '/DISTRIB_ARCH/ {print $2}' /etc/openwrt_release)"
 VER="$(awk -F\' '/DISTRIB_RELEASE/ {print $2}' /etc/openwrt_release | cut -d. -f1)"
 
-[ "$VER" = "24" ] || { echo -e "\n${RED}Неподдерживаемая версия OpenWrt: ${NC}$VER\n"; exit 1; }
-[ "$ARCH" = "aarch64_cortex-a53" ] || { echo -e "\n${RED}Неподдерживаемая архитектура: ${NC}$ARCH\n"; exit 1; }
+[ "$VER" = "24" ] || { echo -e "\n${RED}Неподдерживаемая версия OpenWrt: ${NC}$VER\n"; exit 0; }
+[ "$ARCH" = "aarch64_cortex-a53" ] || { echo -e "\n${RED}Неподдерживаемая архитектура: ${NC}$ARCH\n"; exit 0; }
 
 is_routerich() {
     grep -q "routerich/packages.routerich" /etc/opkg/customfeeds.conf 2>/dev/null
