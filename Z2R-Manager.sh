@@ -9,6 +9,7 @@ NC="\033[0m"
 BLUE="\033[0;34m"
 DGRAY="\033[38;5;244m"
 
+MODEL="$(cat /tmp/sysinfo/model 2>/dev/null)"
 BASE_URL="https://github.com/Slava-Shchipunov/awg-openwrt/releases/download/"
 
 IF_NAME="AWG"
@@ -38,6 +39,10 @@ is_routerich() {
 }
 
 routerich_add() {
+	if echo "$MODEL" | grep -qi routerich; then 
+	echo -e "\n${GREEN}У Вас роутер ${NC}Routerich${GREEN}, добавление не требуется!${NC}"
+	PAUSE
+	return; fi
     sed -i 's/option check_signature/# option check_signature/' /etc/opkg.conf
     echo 'src/gz routerich https://github.com/routerich/packages.routerich/raw/24.10.6/routerich' > /etc/opkg/customfeeds.conf
     opkg update
@@ -59,11 +64,14 @@ is_installed() {
 }
 
 install_zapret() {
+
+if ! echo "$MODEL" | grep -qi routerich; then
 if ! grep -q "routerich/packages.routerich" /etc/opkg/customfeeds.conf 2>/dev/null; then
     echo -e "\n${CYAN}Добавляем пакеты Routerich${NC}"
     sed -i 's/option check_signature/# option check_signature/' /etc/opkg.conf
     echo 'src/gz routerich https://github.com/routerich/packages.routerich/raw/24.10.6/routerich' > /etc/opkg/customfeeds.conf
 fi
+else
     opkg update
     opkg install zapret2 luci-app-zapret2
 wget -qO /opt/zapret2/ipset/zapret_hosts_user_exclude.txt https://raw.githubusercontent.com/StressOzz/Zapret-Manager/refs/heads/main/zapret-hosts-user-exclude.txt
@@ -82,16 +90,22 @@ remove_zapret() {
 }
 
 install_zero() {
+
+if ! echo "$MODEL" | grep -qi routerich; then
 if ! grep -q "routerich/packages.routerich" /etc/opkg/customfeeds.conf 2>/dev/null; then
     echo -e "\n${CYAN}Добавляем пакеты Routerich${NC}"
     sed -i 's/option check_signature/# option check_signature/' /etc/opkg.conf
     echo 'src/gz routerich https://github.com/routerich/packages.routerich/raw/24.10.6/routerich' > /etc/opkg/customfeeds.conf
 fi
+else
     opkg update
     opkg install zeroblock luci-app-zeroblock
+if ! echo "$MODEL" | grep -qi routerich; then
 	sed -i "/option api /s/'v2'/'v1'/" /etc/config/zeroblock
+fi
     echo -e "\nZeroBlock ${GREEN}установлен!${NC}"
 	PAUSE
+fi
 }
 
 remove_zero() {
