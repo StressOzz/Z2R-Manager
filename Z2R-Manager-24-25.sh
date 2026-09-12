@@ -584,7 +584,7 @@ config diagnostic 'diagnostic'
 
 config engine 'engine'
 	option dns_type 'udp'
-	option dns_server '8.8.8.8'
+	option dns_server '9.9.9.9'
 	option dns_rewrite_ttl '60'
 	option dns_strategy 'ipv4_only'
 	option clash_api_enabled '1'
